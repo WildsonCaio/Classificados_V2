@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{% load static%}
+
+{% block 'section'%}
+
+<section>
+    <h1>Anunciar</h1>
+    <form class="annouce" method="POST" enctype="multipart/form-data">{% csrf_token%}
+        <label for="title">Título</label>
+        <input type="text" name="title" id="title">
+        <label for="description">Descrição</label>
+        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <label for="category">Categoria</label>
+        <select name="category" id="category">
+            {% for category in categories%}
+            <option value="{{category.id}}">{{category.name}}</option>
+            {% endfor %}
+        </select>
+        <label for="city">Cidade</label>
+        <select name="city" id="city">
+            <option>Soure</option>
+            <option>Salvaterra</option>
+        </select>
+        <label for="district">Bairro</label>
+        <input type="text" name="district" id="district">
+        <label>Selecionar Fotos</label>
+        <div class="images">
+            <div class="item_file">
+                <img src="{% static 'img/1.png' %}" id="image_1">
+                <input onchange="preview_1()" type="file" name="image_1">
+            </div>
+            <div class="item_file">
+                <img src="{% static 'img/1.png' %}" id="image_2">
+                <input onchange="preview_2()" type="file" name="image_2">
+            </div>
+            <div class="item_file">
+                <img src="{% static 'img/1.png' %}" id="image_3">
+                <input onchange="preview_3()" type="file" name="image_3">
+            </div>
+        </div>
+        <label for="price">Valor</label>
+        <input type="number" name="price" id="price" min="0">
+        <button type="submit">Anunciar</button>
+    </form>
+</section>
+
+{% endblock %}
