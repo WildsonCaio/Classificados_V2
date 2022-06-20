@@ -32,3 +32,14 @@ def filter(request, Categoria):
     categories = Category.objects.all()
     adverts = Adverts.objects.filter(category__name=Categoria)
     return render(request, 'pages/index.html', {'adverts':adverts, 'categories':categories})
+
+def my_ads(request):
+    my_ads = Adverts.objects.filter(user=request.user.id)
+    print(my_ads)
+    return render(request, 'pages/my_ads.html', {'my_ads':my_ads})
+
+def remove_ads(request, id):
+    remove = Adverts.objects.get(id=id)
+    remove.delete()
+    return redirect('my_ads')
+    

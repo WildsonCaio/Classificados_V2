@@ -1,0 +1,23 @@
+{% extends 'base.html'%}
+
+{% block 'section' %}
+
+<section class="section_home ads">
+    <div class="adverts adverts_ads">
+        <div class="cards">
+            {% for announcement in my_ads %}
+            <div class="item">
+                <img src="{{announcement.image_1.url}}" alt="">
+                <p class="title">{{announcement.title}}</p>
+                <p class="price">R$ {{announcement.price}}</p>
+                <div class="location">
+                    <p>{{announcement.date.day}}/{{announcement.date.month}}</p>
+                    <button id="remove{{announcement.id}}" value="{% url 'remove' announcement.id %}" class="remove" type="button" onclick="remove(this)">Remover</button>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
