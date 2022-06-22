@@ -12,7 +12,7 @@
                 <p class="price">R$ {{announcement.price}}</p>
                 <div class="location">
                     <p>{{announcement.date.day}}/{{announcement.date.month}}</p>
-                    <button id="remove{{announcement.id}}" value="{% url 'remove' announcement.id %}" class="remove" type="button" onclick="remove(this)">Remover</button>
+                    <button class="remove" type="button" onclick="click()">Remover</button>
                 </div>
             </div>
             {% endfor %}

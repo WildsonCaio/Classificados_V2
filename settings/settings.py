@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     
     'cloudinary',
     
-    'classificado'
+    'classificado',
+    'accounts'
 ]
 
 MIDDLEWARE = [

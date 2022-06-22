@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+    {% for message in messages %}
+        {% if message%}
+            <script>
+                alert("{{message}}");
+            </script>
+        {% endif %}
+    {% endfor%}
+
+    <form method="POST" class="login"> {% csrf_token %}
+        <h1>Entrar</h1>
+        <div class="user_div">
+            <label for="user">Usuário</label>
+            <input type="text" name="user" id="user" required>
+        </div>
+        <div class="password_div">
+            <label for="password">Senha</label>
+            <input type="password" name="password" id="password" required>
+        </div>
+        <button type="submit">Entrar</button>
+        <p>Ainda não tem cadastro? <a href="{% url 'register' %}">clique aqui.</a></p>
+    </form>
+    
+</body>
+</html>

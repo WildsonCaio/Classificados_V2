@@ -6,5 +6,5 @@ urlpatterns = [
     path('Anunciar/', views.announce, name='announce'), 
     path('meus_anuncios/', views.my_ads, name='my_ads'),
     path('remover/<int:id>/', views.remove_ads,name='remove'),
-    path('<str:Categoria>/', views.filter, name='category')
+    path('filtro/<str:Categoria>/', views.filter, name='category')
                ]

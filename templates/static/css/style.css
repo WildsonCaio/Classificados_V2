@@ -144,6 +144,7 @@ header > nav > ul, header > nav{
     height: 240px;
     transition: .4s ease-out;
     cursor: pointer;
+    margin-bottom: 50px;
 }
 
 .item > img{
@@ -292,7 +293,7 @@ section > h1{
 
     .adverts{
         padding: 0 20px;
-        height: 100vh;
+        height: auto;
     }
 
     .section_home{
