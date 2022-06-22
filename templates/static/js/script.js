@@ -9,3 +9,11 @@ function preview_2() {
 function preview_3() {
     image_3.src=URL.createObjectURL(event.target.files[0]);
 }
+
+function show(){
+    document.getElementById("links").classList.toggle("show");
+    }
+
+    
+
+    
