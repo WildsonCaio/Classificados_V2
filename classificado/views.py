@@ -1,10 +1,10 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import redirect, render, get_object_or_404
 from .models import Category, Adverts, FeedBack
 from datetime import datetime
 
 def index(request):
     categories = Category.objects.all()
-    adverts = Adverts.objects.all()
+    adverts = Adverts.objects.all().order_by('-id')
     return render(request, 'pages/index.html', {'adverts':adverts, 'categories':categories})
 
 def announce(request):
@@ -35,7 +35,6 @@ def filter(request, Categoria):
 
 def my_ads(request):
     my_ads = Adverts.objects.filter(user=request.user.id)
-    print(my_ads)
     return render(request, 'pages/my_ads.html', {'my_ads':my_ads})
 
 def remove_ads(request, id):
@@ -43,3 +42,6 @@ def remove_ads(request, id):
     remove.delete()
     return redirect('my_ads')
     
+def item(request, title, id):
+    announcement = get_object_or_404(Adverts, id=id)
+    return render(request, 'pages/item.html', {'announcement':announcement})    

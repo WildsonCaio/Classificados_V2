@@ -150,6 +150,13 @@ header > nav > ul, header > nav{
     margin-bottom: 50px;
 }
 
+.cards > a {
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+    color: black;
+}
+
 .item > img{
     width: 100%;
     height: 100%;
@@ -266,6 +273,116 @@ section > h1{
 }
 
 
+/*CARROSEL*/
+
+.slider{
+    overflow: hidden;
+    width: 100%;
+    height: 400px;
+
+}
+
+.slide{
+    display: none;
+}
+
+.slider > .slider-content{
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    transition: all 500ms ease;
+
+}
+
+
+.slider > .slider-content > .slider-item {
+    flex: 0 0 auto;
+    width: 100%;
+}
+
+.slider-item > img{
+    width: 600px;
+    height: 400px;
+}
+
+.slider > input:nth-child(1):checked ~ .slider-content{
+    transform: translateX(0%);
+}
+
+.slider > input:nth-child(2):checked ~ .slider-content{
+    transform: translateX(-100%);
+}
+.slider > input:nth-child(3):checked ~ .slider-content{
+    transform: translateX(-200%);
+}
+
+.content{
+    width: 43%;
+    margin: 20px;
+    background-color: red;
+    height: 520px;
+}
+
+.buttons{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;    
+}
+
+.tumblr > img{
+    width: 100px;
+    height: 100px;
+}
+
+
+.buttons > label > img{
+    cursor: pointer;
+    border-radius: 6px;
+    object-fit: fill;
+}
+
+.buttons > label:hover{
+    opacity: 0.9;
+}
+
+.container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.info > h2{
+    margin-bottom: 15px;
+}
+
+.info_item{
+    background-color: antiquewhite;
+    border-radius: 10px;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px;
+    margin-bottom: 28px;
+}
+
+.info_item > p{
+    margin: 10px 0;
+    font-size: 1.4rem;
+    text-align: justify;
+}
+
+
+
+
+
+
 
 
 
@@ -306,6 +423,7 @@ section > h1{
         top: 69px;
         width: 100%;
         height: 60%;
+        z-index: 1;
     }
 
     .show{
@@ -334,4 +452,29 @@ section > h1{
 
     }
 
+    /*ITEM_PAGE*/
+
+    .container{
+        flex-direction: column;
+    }
+
+    .content{
+        width: 95%;
+        background-color: red;
+        margin: 20px auto;
+    }
+
+    .slider-item > img{
+        width: 100%;
+        height: 400px;
+    }
+
+
+}
+
+@media(max-width:609px){
+    .item{
+        width:400px;
+        height: 200px;
+    }
 }
